@@ -148,3 +148,9 @@ ruff +files:
 [positional-arguments]
 eslint +files:
     pnpm exec eslint "$@"
+
+# Carry the current branch across the module moves on origin/main (--continue, --abort, --onto REF, --push)
+[group('move')]
+[positional-arguments]
+migrate-branch *args:
+    scripts/hermes-python -m scripts.ci.python_packages libcst==1.9.0 -- scripts/move/migrate_branch.py "$@"
